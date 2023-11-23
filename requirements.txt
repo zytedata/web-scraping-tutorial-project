@@ -1,0 +1,4 @@
+scrapy
+scrapy-zyte-api
+shub
+zyte-spider-templates
