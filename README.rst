@@ -7,6 +7,12 @@ Scrapy_ project built following `Zyte’s web scraping tutorial`_.
 .. _Scrapy: https://scrapy.org/
 .. _Zyte’s web scraping tutorial: https://docs.zyte.com/web-scraping/tutorial/index.html
 
+.. note:: If you are looking for a template for a new Scrapy project
+    pre-configured to make the most out of Zyte services, see
+    `zyte-spider-templates-project`_ instead.
+
+    .. _zyte-spider-templates-project: https://github.com/zytedata/zyte-spider-templates-project
+
 Requirements
 ============
 
