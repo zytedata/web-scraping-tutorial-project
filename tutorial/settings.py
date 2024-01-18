@@ -107,6 +107,7 @@ DOWNLOADER_MIDDLEWARES = {
 REQUEST_FINGERPRINTER_CLASS = "scrapy_zyte_api.ScrapyZyteAPIRequestFingerprinter"
 ZYTE_API_TRANSPARENT_MODE = True
 SPIDER_MIDDLEWARES = {
+    "scrapy_zyte_api.ScrapyZyteAPISpiderMiddleware": 100,
     "scrapy_poet.RetryMiddleware": 275,
     "zyte_spider_templates.middlewares.CrawlingLogsMiddleware": 1000,
 }
