@@ -1,3 +1,8 @@
+from itemadapter import ItemAdapter
+from zyte_common_items import ZyteItemAdapter
+
+ItemAdapter.ADAPTER_CLASSES.appendleft(ZyteItemAdapter)
+
 # Scrapy settings for tutorial project
 #
 # For simplicity, this file contains only settings considered important or
@@ -96,27 +101,17 @@ TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
 
 # Custom settings
-DOWNLOAD_HANDLERS = {
-    "http": "scrapy_zyte_api.ScrapyZyteAPIDownloadHandler",
-    "https": "scrapy_zyte_api.ScrapyZyteAPIDownloadHandler",
+ADDONS = {
+    "scrapy_zyte_api.Addon": 500,
+    "zyte_spider_templates.Addon": 700,
 }
+ZYTE_API_KEY = "YOUR_API_KEY"
 DOWNLOADER_MIDDLEWARES = {
     "scrapy_poet.InjectionMiddleware": 543,
-    "scrapy_zyte_api.ScrapyZyteAPIDownloaderMiddleware": 1000,
+    "scrapy.downloadermiddlewares.stats.DownloaderStats": None,
+    "scrapy_poet.DownloaderStatsMiddleware": 850,
 }
-REQUEST_FINGERPRINTER_CLASS = "scrapy_zyte_api.ScrapyZyteAPIRequestFingerprinter"
-ZYTE_API_TRANSPARENT_MODE = True
 SPIDER_MIDDLEWARES = {
-    "scrapy_zyte_api.ScrapyZyteAPISpiderMiddleware": 100,
     "scrapy_poet.RetryMiddleware": 275,
-    "zyte_spider_templates.middlewares.CrawlingLogsMiddleware": 1000,
 }
-SCRAPY_POET_DISCOVER = [
-    "zyte_spider_templates.page_objects",
-]
-SCRAPY_POET_PROVIDERS = {
-    "scrapy_zyte_api.providers.ZyteApiProvider": 1100,
-}
-CLOSESPIDER_TIMEOUT_NO_ITEM = 600
-SCHEDULER_DISK_QUEUE = "scrapy.squeues.PickleFifoDiskQueue"
-SCHEDULER_MEMORY_QUEUE = "scrapy.squeues.FifoMemoryQueue"
+REQUEST_FINGERPRINTER_CLASS = "scrapy_poet.ScrapyPoetRequestFingerprinter"

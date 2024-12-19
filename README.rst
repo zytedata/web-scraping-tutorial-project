@@ -16,7 +16,7 @@ Scrapy_ project built following `Zyte’s web scraping tutorial`_.
 Requirements
 ============
 
-Python 3.8 or higher.
+Python 3.9 or higher.
 
 
 Setup
