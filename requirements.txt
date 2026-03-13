@@ -1,4 +1,4 @@
-scrapy==2.11.2
+scrapy==2.14.2
 scrapy-zyte-api
 shub
 zyte-spider-templates
